@@ -9,19 +9,15 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": [
-		"event.js"
-	],
-	"persistent": false
+	"persistent": false,
+	"scripts": ["event.js"]
   },
-  "content_scripts": [{
-	"matches": ["<all_urls>"],
-	"js": ["content.js"]
-  }],
   "permissions": [
+	"notifications",
+	"alarms",
 	"tabs",
-    "activeTab",
-    "https://ajax.googleapis.com/",
-	"alarms"
+	"storage",
+	"http://*/*",
+	"https://*/*"
   ]
 }
