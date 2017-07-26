@@ -2,19 +2,15 @@
 // 		execute content.js on the DOM of the active tab.
 
 //TODO: REMOVE after done testing
-/*chrome.storage.sync.clear(function(){
-	alert("Cleared everything in storage.");
-});*/
-
-chrome.storage.sync.get("icon", function(items) {
-	alert(items["icon"]);
-});
-
+debug = true;
+if(debug){
+	chrome.storage.sync.clear(function(){
+		alert("Cleared everything in storage.");
+	});
+}
 chrome.tabs.query({currentWindow:true, active:true}, function(tabs) {
 	var activeTab = tabs[0];
-	chrome.tabs.executeScript(activeTab.id, {file:"content.js"});
+	chrome.tabs.executeScript(activeTab.id, {file:"content.js"}, function(){
+		alert("content script finished successfully");
+	});
 });
-/*populatePopup();
-function populatePopup(){
-	console.log("populating popop.");
-}*/
