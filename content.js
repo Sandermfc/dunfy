@@ -30,13 +30,11 @@ function highlightHover(event) {
 function tagClicked(event) {
 	if(prev) {
 		// Save the targeted info
-		bla = document.getElementsByTagName("link")[0].innerHTML;
-		alert(bla);
-		dict = {
+		dict = {};
+		dict[document.URL] = {
 			"title": document.getElementsByTagName("title")[0].innerHTML,
-			"url": document.URL,
 			"htmlObject": event.target.innerHTML
-		};
+		}
 		chrome.storage.sync.set(dict, function(){
 			alert("successfully updated Google storage sync.");
 		});
