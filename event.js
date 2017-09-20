@@ -1,4 +1,3 @@
-alert("in event script");
 chrome.alarms.create("periodicCheck", {delayInMinutes: 0, periodInMinutes: 1}); // First time, execute immediately, then every minute.
 chrome.alarms.onAlarm.addListener(function (alarm) {
 	if(alarm.name === "periodicCheck"){
@@ -28,7 +27,11 @@ function periodicCheck(){
 					chrome.notifications.onClicked.addListener(function(){
 						chrome.tabs.create({ url: "showChanges.html" }, function(tab){
 							alert(tab["id"]);
-							//TODO: dynamically add a link towards the wanted page inside showChanges.html
+							//TODO: either do this way or call it from showChanges.html
+							//chrome.tabs.executeScript(tab["id"], {file: "showChanges.js"}, function(){
+							//	if(debug){alert("in script showChanges.js");}
+							//});
+							alert("blablabla");
 						});
 					});
 				});

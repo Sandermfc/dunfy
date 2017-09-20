@@ -1,5 +1,3 @@
-alert("in content script");
-
 // Add a new "highlight" class to the current HTML page
 var style = document.createElement("style");
 style.id = "dunfy-temporary-style"

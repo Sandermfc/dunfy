@@ -10,7 +10,5 @@ if(debug){
 }
 chrome.tabs.query({currentWindow:true, active:true}, function(tabs) {
 	var activeTab = tabs[0];
-	chrome.tabs.executeScript(activeTab.id, {file:"content.js"}, function(){
-		alert("content script finished successfully");
-	});
+	chrome.tabs.executeScript(activeTab.id, {file:"content.js"}, function(){});
 });
